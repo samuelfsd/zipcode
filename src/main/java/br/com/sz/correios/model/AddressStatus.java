@@ -13,11 +13,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Address {
+public class AddressStatus {
     @Id
-    private String zipcode;
-    private String street;
-    private String district;
-    private String city;
-    private String state;
+    private int id;
+    private Status status;
 }
