@@ -14,6 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 public class AddressStatus {
+    public static final int DEFAULT_ID = 1;
     @Id
     private int id;
     private Status status;
