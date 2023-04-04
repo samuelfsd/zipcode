@@ -1,6 +1,7 @@
 package br.com.sz.correios.service;
 
 import br.com.sz.correios.exception.NoContentException;
+import br.com.sz.correios.exception.NotReadyException;
 import br.com.sz.correios.model.Address;
 import br.com.sz.correios.model.AddressStatus;
 import br.com.sz.correios.model.Status;
@@ -21,7 +22,9 @@ public class CorreiosService {
                 .getStatus();
     }
 
-    public Address getAddressByZipcode(String zipcode) throws NoContentException {
+    public Address getAddressByZipcode(String zipcode) throws NoContentException, NotReadyException {
+        if(!this.getStatus().equals(Status.READY)) throw new NotReadyException();
+
         return addressRepository.findById(zipcode)
                 .orElseThrow(NoContentException::new);
     }
