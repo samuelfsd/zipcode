@@ -40,7 +40,7 @@ public class SetupRepository {
                             .city(curentLineSplited[1])
                             .district(curentLineSplited[2])
                             .zipcode(StringUtils.leftPad(curentLineSplited[3],8, "0"))
-                            .street(curentLineSplited.length > 3 ? curentLineSplited[4] : null)
+                            .street(curentLineSplited.length > 4 ? curentLineSplited[4] : null)
                             .build());
         }
         return resultList;
